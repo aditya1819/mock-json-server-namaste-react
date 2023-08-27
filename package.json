@@ -1,0 +1,19 @@
+{
+  "name": "mock-json-server-namaste-react",
+  "version": "1.0.0",
+  "description": "This repo has a mock json server containing hotel data that can be used in namaste react tutorial instead of depending on a Live API that can change anytime putting a work to updated react components - Last updated: 27/08/23 - Till Namaste react video number: 7 - Finding the path",
+  "main": "server/json-server.js",
+  "scripts": {
+    "start": "node server/json-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "namaste-react",
+    "mock-json-server"
+  ],
+  "author": "Aditya Shahare",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  }
+}
