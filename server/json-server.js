@@ -35,13 +35,18 @@ server.get('/hotel/:id', async (req, res) => {
   const id = req.params.id;
 
   console.log(`Fetching data for hotel: ${id}`);
-  
-  let _path = __dirname.split('\\').slice(0, 4);
-  _path = path.join(..._path, 'data', 'hoteldata', id);
+
+  // Determine the base directory dynamically based on the current script's location
+  const baseDirectory = path.join(__dirname, '..', 'data', 'hoteldata');
+  console.log(baseDirectory);
+
+  const filePath = path.join(baseDirectory, `${id}.json`);
+
+  console.log(filePath);
 
   let data = [];
   try {
-    data = await readFileSync(_path + '.json', 'utf8');
+    data = await readFileSync(filePath, 'utf8');
 
     // Parse the JSON data
     data = JSON.parse(data);
@@ -104,7 +109,7 @@ const router = jsonServer.router({});
 server.use(middlewares);
 server.use(router);
 
-const PORT = 4000;
+const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`Mock JSON Server is running on port ${PORT}`);
 });
