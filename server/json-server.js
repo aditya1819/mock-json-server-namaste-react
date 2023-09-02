@@ -4,6 +4,32 @@ const utils = require('./utils');
 const server = jsonServer.create();
 const middlewares = jsonServer.defaults();
 
+const PORT = 3000;
+const localhostUrl = `http://localhost:${PORT}`;
+
+server.get('/', (req, res) => {
+  const data = {
+    status: 'UP',
+    message: 'Please use following endpoints',
+    data: [
+      {
+        useCase: 'Get all hotels',
+        url: `${localhostUrl}/v1/hotels`
+      },
+      {
+        useCase: 'Get hotel by Id',
+        url: `${localhostUrl}/v1/hotel/:id`
+      },
+      {
+        useCase: 'Get by hotel Id - Category wise Objects',
+        url: `${localhostUrl}/v2/hotel/:id`
+      }
+    ]
+  };
+
+  res.json(data);
+});
+
 // avoid these routes (missed out on adding version support) ----------------------------------
 
 // Add a custom route for /hotels
@@ -29,7 +55,6 @@ const router = jsonServer.router({});
 server.use(middlewares);
 server.use(router);
 
-const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`Mock JSON Server is running on port ${PORT}`);
 });
