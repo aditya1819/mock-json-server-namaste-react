@@ -51,4 +51,5 @@ Thanks
 
 Common Issues:
 
-[CORS Extension for Chrome](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf)
+- [CORS Extension for Chrome](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf)
+- Some images may appear broken,as we are fetching image from cloudinary and image might be updated in cloudinary DB. Use some mock image in that case
